@@ -1,0 +1,375 @@
+    /* Base and body */
+    html, body {
+        height: 100%;       /* Full height for scrolling */
+        min-height: 100%;   /* Minimum full viewport height */
+        background: #000000;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        color: white;
+        padding: 0;
+    }
+
+    /* Container */
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #2c2f33;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #906c02;
+        color: white;
+    }
+
+    /* Header with logo and title side-by-side */
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #faad14;
+        margin-bottom: 25px;
+        background-color: #23272a;
+    }
+
+    .logo {
+        height: 50px;
+        width: auto;
+    }
+
+    .title {
+        margin: 0;
+        color: #faad14;
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+
+    /* Style dropdown labels */
+    label {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #f0b90b;
+    }
+
+    /* Two-column layout */
+    .main-content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        color: white;
+    }
+
+    /* Inputs styling */
+    .inputs {
+        background-color: #1e2124;
+        color: white;
+        border-radius: 12px;                
+        padding: 5px 5px;                
+        transition: background-color 0.3s ease;
+    }
+
+    /* Label style inside inputs */
+    .inputs label {
+        color: #f7c948;                    /* Soft gold for labels */
+        font-weight: 600;
+        font-size: 15px;
+        display: block;
+    }
+
+    /* Dropdown styling */
+    .inputs .dash-dropdown,
+    .inputs .Select-control {
+        background-color: #2a2e33 !important;
+        border-radius: 8px !important;
+        border: 1px solid #ffffff !important;
+        box-shadow: none !important;
+        font-size: 14px;
+        min-height: 38px;
+        padding: 4px 8px;
+        transition: border-color 0.2s ease;
+        color: white;
+    }
+    .inputs .dash-dropdown:hover,
+    .inputs .dash-dropdown:focus-within {
+        border-color: #f7c948 !important;
+    }
+
+    .Select-menu-outer {
+        background-color: #2a2e33 !important;
+        color: rgb(255, 255, 255) !important;
+    }
+
+    .has-value.Select--single>.Select-control .Select-value .Select-value-label, .has-value.is-pseudo-focused.Select--single>.Select-control .Select-value .Select-value-label {
+        color: white !important;
+    }
+    /* DateInput styling */
+    .inputs .DateInput_input {
+        background-color: #2a2e33 !important;
+        color: #eaeaea !important;
+        border-radius: 8px !important;
+        border: 1.5px solid #444b55 !important;
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+        transition: border-color 0.2s ease;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .inputs .DateRangePickerInput_arrow {
+        display: none !important;
+    }
+
+    .inputs .DateInput_input:focus {
+        outline: none !important;
+        border-color: #f7c948 !important;  /* gold border on focus */
+        box-shadow: 0 0 6px #f7c948;
+    }
+
+    /* DatePicker container */
+    .inputs .DateRangePicker_picker {
+        background-color: #2a2e33 !important;
+        border-radius: 8px !important;
+    }
+
+    /* Tooltip styling */
+    .inputs .DateRangePickerInput_input__focused, 
+    .inputs .DateInput_fang {
+        border-color: #f7c948 !important;
+    }
+
+    /* Left column: graph and controls */
+    .left-column {
+        flex: 8;
+        min-width: 0; /* prevent overflow */
+        display: flex;
+        flex-direction: column;
+        gap: 25px;            /* space between graph, slider and rolling window */
+        padding: 20px 0;      /* top and bottom padding */
+    }
+
+    /* Graph container sizing */
+    .left-column > div.dash-graph {
+        width: 100%;
+        height: 600px;    /* adjust as needed */
+        min-height: 500px;
+        max-width: 100%;
+    }
+
+    /* Range slider appearance */
+    .left-column .rc-slider-rail {
+        background-color: #444;  /* darker rail color for contrast */
+        height: 8px;
+        border-radius: 4px;
+    }
+
+    .left-column .rc-slider-track {
+        background-color: #faad14; /* gold active track */
+        height: 8px;
+        border-radius: 4px;
+    }
+
+    .left-column .rc-slider-handle {
+        border: 2px solid #faad14;
+        background-color: #23272a;
+        width: 24px;
+        height: 24px;
+        margin-top: -8px;  /* vertically center handle */
+        box-shadow: 0 0 5px #faad14;
+        transition: box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .left-column .rc-slider-handle:hover {
+        box-shadow: 0 0 10px #ffcc33;
+    }
+
+    /* Slider label spacing */
+    .left-column > label {
+        margin-top: 25px;
+        color: #faad14;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .left-column .rolling-slider-container .rc-slider {
+        width: 100%; /* fills its 50%-width parent */
+    }
+    .left-column .rolling-slider-container {
+        min-width: 220px; /* prevent too small on tiny screens */
+        max-width: 400px; /* prevent stretching too wide */
+    }
+
+    /* Right column: controls */
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 2px solid #f0b90b;
+        padding: 20px;
+        background-color: #000000;
+        align-self: flex-start;  /* no stretch taller than content */
+        height: auto;
+        max-height: none;
+    }
+
+    /* Remove bottom margin on last child */
+    .right-column > *:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Right column labels */
+    .right-column label {
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #f0b90b;
+    }
+
+    /* Buttons styling: Fetch Data, Export CSV, Reset Filters */
+    .buts {
+        background-color: #faad14;  /* Gold background */
+        color: #23272a;             /* Dark text color */
+        border: none;
+        border-radius: 12px;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 0 8px rgba(250, 173, 20, 0.5);
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .buts:hover,
+    .buts:focus {
+        background-color: #f7c948;  /* Lighter gold on hover */
+        outline: none;
+        box-shadow: 0 0 12px rgba(247, 201, 72, 0.8);
+        color: white;
+    }
+
+    .buts:active {
+        background-color: #d1940c;  /* Darker gold on active press */
+        box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+        transform: translateY(1px);
+    }
+
+    /* Project Description Section */
+    .project-description {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #23272a;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(250, 173, 20, 0.5);
+        color: #ddd;
+    }
+
+    .project-description h2,
+    .project-description h3 {
+        color: #faad14;
+        margin-bottom: 15px;
+    }
+
+    .project-description p,
+    .project-description li {
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .project-description ul {
+        padding-left: 20px;
+    }
+
+    /* Responsive for smaller screens */
+    @media (max-width: 768px) {
+        /* Stack columns vertically */
+        .main-content {
+            flex-direction: column;
+            gap: 30px;  /* extra vertical spacing */
+        }
+
+        .left-column, .right-column {
+            flex: none;
+            width: 100%;
+            padding: 10px 0;
+
+        }
+
+        .right-column{
+            align-items: center;
+        }
+        
+        
+        /* Reduce container padding for better fit */
+        .container {
+            padding: 15px;
+            margin: 20px 10px;
+        }
+
+        /* Header stacks its elements */
+        .header {
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .title {
+            font-size: 20px;
+        }
+
+        /* Increase label font size for better tap targets */
+        label {
+            font-size: 1.25rem;
+        }
+
+        /* Inputs full width, bigger font, spacing */
+        .inputs {
+            width: 80% !important;
+            margin: 0 auto;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+
+        /* Buttons full width and bigger */
+        .buts {
+            width: 80%;
+            padding: 10px;
+            font-size: 1.25rem;
+            border-radius: 12px;
+        }
+
+        /* Date picker input and dropdown text bigger and padding larger */
+        .inputs .DateInput_input,
+        .inputs .dash-dropdown {
+            font-size: 16px !important;
+            padding: 10px 15px !important;
+        }
+
+        /* Responsive graph height for mobile */
+        .left-column > div.dash-graph {
+            height: 60vh !important;  /* 60% of viewport height for mobile */
+            min-height: 400px;
+        }
+
+        /* Make slider handles larger and easier for touch */
+        .left-column .rc-slider-handle {
+            width: 32px;
+            height: 32px;
+            margin-top: -12px;
+        }
+
+        .left-column .rolling-slider-container {
+            max-width: none;
+            min-width: 100%;
+        }
+    }
